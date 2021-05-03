@@ -4,11 +4,16 @@ def wordcount(input):
     input_var = open(input)
     letter_counts = {}
 
-    for line in input:
+    for line in input_var:
+        line = line.rstrip()
         line = line.split(' ')
-        letter_counts[line] = letter_counts.get(line, 0) + 1
-
+        for word in line:
+            letter_counts[word] = letter_counts.get(word, 0) + 1
+            
+    for word in letter_counts:
+        print(word, letter_counts[word])
     return letter_counts
 
-print(wordcount("test.txt"))
+wordcount("test.txt")
+
 
